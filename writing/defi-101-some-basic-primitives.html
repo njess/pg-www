@@ -1,0 +1,329 @@
+<html>
+<head>
+<meta name="description" content="DeFi 101: Some basic primitives, where they came from (and why it matters) - Proof Group"/>
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@proofgp" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script data-goatcounter="https://proofgroup.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="canonical" href="http://proofgroup.xyz/writing/defi-101-some-basic-primitives" />
+<link rel="icon" type="image/x-icon" href="../img/favicon.ico">
+<style>
+        body {
+          line-height: 1.4;
+            font-size: 16px;
+            padding: 0 10px;
+            margin: 50px auto;
+            max-width: 650px;
+        }
+        #maincontent
+        {
+        max-width:42em;margin:15 auto;
+        }
+        #logo {
+                margin-bottom: 30px;
+        }
+        #logo img {
+                max-height: 60px;
+                width: auto;
+        }
+        a {
+                color: #0066cc;
+                text-decoration: none;
+        }
+        a:hover {
+                text-decoration: underline;
+        }
+        h1 {
+                margin-bottom: 20px;
+        }
+        h2 {
+                margin-top: 30px;
+                margin-bottom: 15px;
+        }
+        strong {
+                font-weight: bold;
+        }
+        em {
+                font-style: italic;
+        }
+        .date {
+                color: #666;
+                font-size: 14px;
+                margin-bottom: 20px;
+        }
+</style>
+
+<title>DeFi 101: Some basic primitives, where they came from (and why it matters) - Proof Group</title>
+</head>
+<body>
+<div id="maincontent" style="margin-top:70px">
+  <div id="logo">
+    <a href="../">
+      <img src="../img/ProofGroup-Lockup-Color.png" alt="Proof Group" />
+    </a>
+  </div>
+
+<h1>DeFi 101: Some basic primitives, where they came from (and why it matters)</h1>
+
+<p><em>Originally published on <a href="https://medium.com/@njess/defi-101-some-basic-primitives-where-they-came-from-and-why-it-matters-35f8c0cf8557">Medium</a></em></p>
+
+<div class="date">Jan 10, 2022</div>
+
+
+<p><img src="https://miro.medium.com/v2/resize:fit:1400/1*rphxaIL-F6n4Geb9zAIp2w.png" alt="" /></p>
+
+<p><em>I originally wrote this piece in January of 2021 for some of my partners. Publishing today as the exploding complexity of DeFi makes going back to the origins even more fruitful today.</em></p>
+
+<p><em>Should you want to break into DeFi, please drop me a DM (@</em><a href="http://twitter.com/njess"><em>njess</em></a> <em>on Twitter) or email — I’m working with a number of incredible ecosystems, early protocols, and investors who are all hiring across engineering, product, business, and investing roles.</em></p>
+
+<p><strong>During 2020, DeFi became such a large part of the crypto ecosystem that it has become impossible to ignore.</strong>  But as the space has grown — so has the complexity and the amount of terminology. Enough people have asked me to learn about the space that I wanted to capture everything as I understand it today (January 11th, 2021) — with any luck, this will become an evolving document to reflect future changes, as the ecosystem is growing so rapidly.</p>
+
+<p>The biggest barrier to broader adoption is no longer the technology — it’s how we collectively help new folks understand what is happening, so they can bring their ideas, talents, and capital to this new financial infrastructure.</p>
+
+<p>So with that — let’s begin…and always happy to chat about this stuff on Twitter (I’m  <a href="https://twitter.com/njess">@njess</a>).</p>
+
+<p><em>(Please do note: none of what follows should be taken as investment advice, it is for education purposes only. These views are mine and mine alone. I believe in this space, and as such, may hold many of the digital assets discussed.)</em></p>
+
+<h2>What’s “DeFi” and where is it</h2>
+
+<p>DeFi stands for “Decentralized Finance” and lives on blockchains (originally on the Ethereum network). Why decentralized? The theory goes — as contrasted to traditional finance (“TradFi” is the slang) — you, the customer, do not have to face a company as your counterparty. Said more simply: to trade you don’t have to establish an account at an exchange and send your funds to the custody of that exchange to be able to trade. Instead, the trading venue is a protocol (currently generally a “smart contract”) that lives on a blockchain already.</p>
+
+<p>There are many benefits that come from this arrangement (along with a whole bunch of unexpected and/or clunky behavior). Just remember — there was a time that it was confusing we had to type “http://www.” before web addresses became common. For a time, AOL “keywords” acted as a stop-gap on top of the underlying protocols. That’s the stage DeFi is at right now — some usage patterns are emerging, but it’s still very early.</p>
+
+<p>But first a note: crypto assets (BTC, ETH, etc) are “<a href="https://www.investopedia.com/terms/b/bearer_bond.asp">bearer bond</a> instruments” by nature. He or she who holds is the owner. One of the best security engineers (and large custodian operators) said it most simply:</p>
+
+<blockquote>“Bearer bonds are good for humans, but bad for institutions”</blockquote>
+
+<p>Since holding the asset is proof of ownership, it leaves more room for error for institutions. But for humans, it means we can take control of our financial assets and build new systems in entirely new ways.</p>
+
+<p>Now to the benefits of DeFi…of which there are many…</p>
+
+<ul>
+<li>All activity happens on-chain: you can see everything that is happening, and view this activity in many different tools and formats</li>
+<li>You — the financial customer — don’t face a company. Rather, you interact with a protocol. This protocol has its own set of risks. But unlike a centralized entity (exchange, lender), you (and others) can inspect how something is working, verify things happen as they should.</li>
+<li>Open source. Not as in all free — or that intellectual property isn’t good — just open source by default, as part of being on a blockchain. This means a faster innovation cycle, more competition, and protocol developers have to work to find new moats and ways to add value other than keeping things in secret.</li>
+<li>(Generally) no accounts — some people may see this as a no/low KYC, but rather I think it’s more interesting that i) all consumers/institutions may have the same access and ii) no passwords to forget or data to be hacked.</li>
+<li>When you combine all of the above you get what is perhaps the most profound benefit:  <strong>interoperable access to every system, available to anyone.</strong> This means — at least to me — that now anyone in the world can not only use, but help build these new financial systems.</li>
+</ul>
+
+<p>I realize this is a lot to cover — you’ll see some of these themes pop up again and again as we dive into areas in sections below. I do want to highlight the final benefit in the list above once more: when the entire world can build, serve, compete — truly amazing things can happen. Sometimes people try rather hard to shoehorn crypto as  <em>the next Internet</em>  — but rather than overly fixate on such a parable, I would just offer that i) there has never been more interesting tooling to build important things and ii) the systems to create and capture value are built in.</p>
+
+<p>Even more simply: the money Legos have gotten really good. And now we can connect each piece with each other — and build stuff we never would have dreamed of just a year ago.</p>
+
+<p>What kind of stuff? Let’s begin our survey.</p>
+
+<h1>(Optional) Brief primer on smart contracts</h1>
+
+<p>All the DeFi systems we will discuss rely on logic that executes on a blockchain — commonly called “smart contracts.”</p>
+
+<p>Without going into detail, all you need to know to follow along:</p>
+
+<p>1.  Smart Contracts are like legal contracts that execute as “negotiated”</p>
+<p>2.  Smart Contracts can hold funds (e.g. also an escrow / trustee / bank account)</p>
+<p>3.  State of Smart Contracts can be updated every “block” — which in Ethereum, is approximately every 15 seconds</p>
+<p>4.  Many/most smart contracts are entirely open — e.g. anyone can interact with them</p>
+<p>5.  Once a Smart Contract is “deployed” (e.g. put on the blockchain), it cannot be removed by anyone* (* sometimes, contracts can be “upgradable” which means whoever has control can change them)</p>
+
+<p>These basic properties let you build many things. As a toy example, we could write a smart contract that just settles a bet: and we each put $100 into the smart contract, and whenever the outcome of the bet is known, the smart contract pays the winner.</p>
+
+<p>Also — “tokens” on Ethereum are really just ledger-entries in a smart contract. So when you buy $10 of “USDC” (1:1 USD-backed stablecoin) — you are actually just having a ledger entry in a smart contract updated to reflect that your wallet is the benefactor of 10 of these tokens.</p>
+
+<p>The 2017 ICO (“Initial Coin Offering”) boom was fueled by new projects taking capital in exchange for coins that would be issued, all via a smart contract.</p>
+
+<p>To execute or call a Smart Contract, you must pay “gas” which is composed of two parts: i) a price per unit and ii) an amount. This allows users to increase the gas price they pay to be prioritized for inclusion in the next block on the blockchain; the “amount” of gas is basically how much computation they are purchasing for that transaction. So a simple transaction (say, 1 + 1) will cost less than some extremely complicated call that updates 9 different smart contracts along the way.</p>
+
+<p>With that out of the way, let’s turn our attention back to DeFi…</p>
+
+<h1>DeFi Primitives</h1>
+
+<p>The first stop in our journey is to study the primitives — somewhat simple units that do one thing, and do it really well. There’s already incredible specialization within each of these primitives, but we can take inventory of the shapes of the most prevalent money-Legos we already have.</p>
+
+<h1>1. Trading</h1>
+
+<h2>Early history</h2>
+
+<p>One of the first areas of decentralized experimentation was around trading. Specifically, early questions were i) how can one trade without having to create an account on an exchange and ii) how can one trade things that haven’t been yet listed on exchanges. The latter question I think is the more interesting of the two — I’ve written previously about the notion of the  <a href="https://www.forbes.com/sites/noahjessop/2018/04/26/the-conservation-of-centralization/?sh=6b09cc8b4eb6">Conservation of Centralization</a>  — which is to say, when we decentralize one thing, we just push that centralization somewhere else.</p>
+
+<p>Early days of many cryptocurrencies (the multi-theistic world beyond Bitcoin alone), large benefactors of this principle were the crypto asset exchanges. Many of these exchanges could (and did) charge projects a steep fee to be listed, and getting exchange support was an early chicken-and-egg situation for new projects.</p>
+
+<p>Decentralized trading has had many chapters. First to launch was a project called EtherDelta, which hosted an order book, although trades were actually settled in a smart contract. (You can read more about this in an old thread  <a href="https://steemit.com/ethereum/@profitgenerator/etherdelta-decentralized-token-exchange">here</a>  and their subsequent settlement with the SEC  <a href="https://www.sec.gov/news/press-release/2018-258">here</a>.)</p>
+
+<p>Next to arrive on the scene was the  <a href="https://0x.org/">0x</a>  project — they aimed to have a trusted layer to settle token trades. Let’s say that I’m looking to sell token  <em>X</em>, and you are trying to buy  <em>X</em>, paying with token  <em>Y</em>: I would post my token  <em>X</em> (along with the price I will set it for) within a 0x-smart contract. To buy my  <em>X</em>  token, you merely need to send enough  <em>Y</em> to the smart contract. (There’s a pretty good writeup of how this works from around the time of the 0x launch  <a href="https://blockgeeks.com/guides/0x-project/">here</a>.)</p>
+
+<p>0x provided a trusted way for the actual trade to be processed — but traders still had problems replicating a normal experience — e.g. i) how can you find what prices are available? ii) how do you see how much open interest exists?, etc.</p>
+
+<p>This led to a number of “Relayers” being created — basically message boards that would show potential activity (and enable you to interact with the 0x protocol on-chain), trying to backfill some of the experience that was missing from typical centralized exchanges. (Most notably, was the  <a href="https://medium.com/@RADARRELAY/introducing-radar-e491adec086b">launch</a>  of Radar Relay.) While a significant step forward, Relayers still had some operational challenges: for example, you might see a trade that you would like to make, start the Ethereum transaction to complete the trade using the 0x protocol, only to find that liquidity had been taken by someone else prior (and you had wasted the Ethereum “gas” transaction cost.)</p>
+
+<p>Volumes were still small at this point — and a few Relayers were acquired by centralized exchanges. However, the 0x project had  <em>paved the way for safe swaps between two different tokens to happen on chain</em>. (Assuming, however, that both parties had a) figured out a price they were willing to trade and b) found their way into the same transaction together. This would set the stage for a very unexpected jump forward.</p>
+
+<h2>Markets for everything (enter AMMs)</h2>
+
+<p>Sitting down for Sushi in a hushed spot in downtown Manhattan, my dining mate apologized and said  <em>“I’m sorry to bring out my phone at the table…but do you mind if I sell some socks?”</em></p>
+
+<p>Just the day before (May 9th, 2019), a curious experiment had been launched: a smart-contract powered automated market maker. To mark the launch of this test version of the protocol, the makers had launched, effectively, a bot that would buy and sell (priced in Ethereum), pairs of (now-famous) commemorative socks: Unisocks.</p>
+
+<p>Unisocks, at the time of writing, sell for upwards of $21,000 a pair</p>
+
+<p>The mechanic was simple: the team had loaded both socks and ETH into a smart contract, and told it to buy and sell to anyone who wanted to trade with the contract:</p>
+
+<ul>
+<li><em>x = 500 pairs of Unisocks (tokens redeemable for a pair of physical socks)</em></li>
+<li><em>y = 35 ETH (market price of $173 per ETH, total of $6,055 at the time)</em></li>
+</ul>
+
+<p>Then, using their in-beta Uniswap automated market making protocol (AMM), they fixed the trading curve for the socks:</p>
+
+<p><img src="https://miro.medium.com/v2/resize:fit:1400/1*cwjyyXGkWd9KFIYZZjUPFg.png" alt="" /></p>
+
+<p>Source: Uniswap Twitter announcement. This shape is commonly called a “bonding curve” now — though this chart is a bit muddled because the real price is in Ethereum.</p>
+
+<p>The idea is simple, if a bit confusing at first. The smart contract  <em>should charge a price so it can always has enough socks and ETH to transact</em>. Lots of socks sell? Raise the price.</p>
+
+<p>This is now called a “constant-product market maker” which has a “bonding curve” (e.g. shape in image above) — since the algo of how much to charge to buy or sell is  <em>x</em> ×  <em>y = k.</em></p>
+
+<p>So — simply by loading up two kinds of value (a “pair”) and telling the smart contract some selling rules (“shape of the bonding curve”) — the makers have created a 24/7, 365-days-a-year market for both items. You may not like the price…you may not like the spread….but there will always be a bid/ask available.</p>
+
+<p>My dinner mate (who used to trade professionally) was aggressively pushing around the price on this nascent market for Unisocks…and decided to take a little profits (by selling his socks back to the AMM, now that it had fewer socks to offer other buyers…thus a higher price). (We’ll come back to talk more about Sushi later…)</p>
+
+<p>Many folks with a traditional finance background were pretty quick to dismiss Uniswap — their chief concern was that anyone trading (or liquidity providing) to these contracts might receive a strictly worse deal. Market makers could make the price worse for consumers, instead of tightening spreads between an orderbook bid/ask as in traditional exchanges. While some of the details are still being discussed, researched, and argued —  <em>very few people realized the power of having a permissionless market always willing to trade.</em>  Not an efficient market. An available market.</p>
+
+<p>This primitive — the automated market maker smart contract (AMM) may very well be DeFi’s real zero to one moment.</p>
+
+<h1>2. Lending</h1>
+
+<h2>Digital asset-denominated yield curves</h2>
+
+<p>In 2017, I set out to find how a  <a href="https://www.investopedia.com/terms/y/yieldcurve.asp">yield curve</a>  for Bitcoin might be established. At the time, there was no “real” productive use for crypto assets. There were just a few early firms who were helping give early crypto holders a way to borrow against their crypto holdings (in a vastly over-collateralized fashion), mostly as a way to buy houses or similar, without completely exiting their positions.</p>
+
+<p>It wasn’t obvious to me at the time, but one fellow had an early view of exactly how this might work: the founder of a project called  <a href="https://compound.finance/">Compound</a>. At the time, I was hung up on what the productive rate would be: how could we know exactly the most useful way to use BTC? (My early thoughts were that perhaps a borrow rate might emerge for operators of the Lightning Network (a payment network protocol build on top of Bitcoin), who would need BTC to process transactions, but the math and scale for this was really not there.</p>
+
+<p>Robert from Compound had a much simpler (and now proven to be right) view of the world: just set an arbitrary yield curve  <em>on the borrow side</em>. Then, simply pay this pro-rata to the lenders. So for example, set a rate to borrow ETH (say 10% per annum), and then pay this pro-rata to all the lenders of ETH seeking return. So if there were $10M in ETH on deposit, with only $1M in ETH borrowed, each lender would receive a rate of 1% per annum on their holdings.</p>
+
+<p>This “pooling” was actually very similar to the AMM discoveries happening elsewhere throughout the ecosystem — and has proven to be an incredibly effective way to set a market price for capital.</p>
+
+<p><strong>Over-collateralization</strong></p>
+
+<p>With a system in place to decide what the borrow/lend rates are, there’s one other major question for lending to work in an entirely decentralized context: how to secure the loans.</p>
+
+<p>What the DeFi ecosystem has created is an entirely over-collateralized marketplace for borrowing. Since all these digital assets are bearer instruments, it is easy for a protocol to i) take collateral in a variety of forms and ii) verify that the collateral is good.</p>
+
+<p>However, since many of these digital assets have a lot of variance of their price (as measured in Dollars), care is required when deciding how an asset may be used as collateral.</p>
+
+<p>Specifically, the system has a emerged:</p>
+
+<p>1.  Provide 1.25X or greater collateral to the protocol (say for example, $1M worth of Ethereum)</p>
+<p>2.  Borrow a safe amount, relative to the amount collateral posted (say here, only borrowing $700K of dollar-equivalent, leaving buffer in collateral supplied, e.g. $100K of un-used borrowing power)</p>
+<p>3.  Monitor this position to prevent a margin call</p>
+
+<p>Unlike centralized finance, a margin call is not a friendly phone call from your prime broker, asking for a wire to be sent that day or the next. Rather, these protocols have created an entirely new market — native to DeFi — for margin calls: the market for liquidators.</p>
+
+<p><strong>Liquidators</strong></p>
+
+<p>In the example above, we have a 70% LTV (loan-to-value) dollar-backed-by-ETH loan. We are 5% over-collateralized. But if the price for Ethereum were to fall by just more than 5%, our loan would hit the limit for risk the protocol is willing to take. Instead of a friendly phone call asking for a wire to be sent,  <em>anyone may repay our $700K USD</em>  and take some of the ~$940K in Ethereum we have posted as collateral.</p>
+
+<p>This market — for largely risk-free arbitrage — has become extremely competitive already. Today, many different “desks” (whether institutions or individuals, we do not know) continually monitor the state of the blockchain, looking for any opportunity to help liquidate a position and earn a yield.</p>
+
+<p>Beyond the speed and competitiveness to actually discover and submit a transaction to liquidate eligible positions, there’s also a footrace taking place to be the very first transaction to reap the benefit of liquidation. Liquidators — who find a positive-NPV opportunity — will often find that the blockchain transaction they submit is detected, copied, and front-run — all in an instant. (The machinery around pre-compute and optimization within the Ethereum Mempool is beyond the scope here; will write about this more in a later piece. Meantime, an excellent introductory piece is “<a href="https://samczsun.com/escaping-the-dark-forest/">Escaping the Dark Forest</a>.”)</p>
+
+<p><strong>Flash loans</strong></p>
+
+<p>You might ask — how is there a large enough market of people with sufficient capital to pay off a loan of any amount the very moment moment that the collateral falls in value? One of the DeFi-native ways that this is made possible is through the creation of the “flash loan.”</p>
+
+<p>A flash loan — originally invented by the lending protocol  <a href="http://aave.com/">Aave</a>  — is simply a loan that is  <em>originated and returned within one atomic transaction</em>. Rather than posting collateral, having a floating rate, etc — flash loans charge a low flat rate (e.g. 9 basis points). No collateral is needed, because the Ethereum transaction only confirms (completes) if, and only if, the loan is repaid in the same transaction.</p>
+
+<p>Thus our liquidators (above), don’t need to have $700K of USD waiting for arb opportunities — rather, when they detect an opportunity, they:</p>
+
+<p>1.  Take out a flash loan for the amount they need to repay (here $700K)</p>
+<p>2.  Repay the loan they are liquidating</p>
+<p>3.  Take the surplus collateral (typically minus some fees the lending protocol collects)</p>
+<p>4.  Market sell all or part of this collateral on an AMM</p>
+<p>5.  Repay the flash loan, and complete the transaction.</p>
+
+<p>Here, we’ve i) utilized a completely DeFi-native financial ability and ii) used it to reduce risk on another part of the ecosystem.</p>
+
+<p>The composability of these different primitives — even in these earliest moments — allows rapid expansion of this new financial ecosystem, and helps to re-create the risk management that we might have in traditional counterparty and courts ecosystem.</p>
+
+<p><strong>Risk parameters</strong></p>
+
+<p>Another relevant development within the lending markets is the process for deciding new assets — and the appropriate risk thresholds they require. Currently, most of the major lending protocols do this i) in public and ii) by the vote of their own governance token holders. While Governance is a much larger topic than we can cover here — think of it as all the shareholders in a protocol may i) propose changes and ii) vote to approve new conditions.</p>
+
+<p>So rather than assets being added arbitrarily, the community will come together, and through a public process, propose, iterate and set risk parameters of assets added to these ecosystems.</p>
+
+<p>(For a quick study of LTV-rates, liquidation thresholds, and similar, I would refer curious readers to the Aave protocol’s summary of their  <a href="https://docs.aave.com/risk/asset-risk/risk-parameters">risk parameters</a>.)</p>
+
+<h1>3. Working Capital</h1>
+
+<h2><strong>Liquidity Mining</strong></h2>
+
+<p>In April of 2020, an elastic-supply money protocol (Ampleforth) let their community know of an upcoming feature: something they called a “<a href="https://www.ampltalk.org/app/forum/ampl-geyser-19/topic/about-the-geyser-21/">Geyser</a>.” The protocol was looking to distribute value to people around the world who help build the protocol and make it more valuable.</p>
+
+<p>An easy way for anyone to add value to a protocol is simply to help provide liquidity — make it easier for others to access asset or use a new financial service. Before DeFi, this would require getting an asset listed on a centralized exchange, marketing making expertise, as well as capital. Now, however, anyone with capital can provide that as working-capital to the automated market maker protocols that support the asset they want to help. When funds are supplied to Uniswap, for example, liquidity providers receive a “deposit receipt” of sorts — called the “UNI-V2” token in Uniswap’s case.</p>
+
+<p>Ampleforth’s “Geyser” was a simple incentive program: anyone who showed proof of providing liquidity on Uniswap ETH<>AMPL pair (by staking their deposit receipt) became eligible to receive a pro-rata share of incentives.</p>
+
+<p>Around the same time, the Compound lending protocol launched a similar program to distribute their governance token (COMP) — by distributing it pro-rata to lenders and borrowers on their decentralized lending platform.</p>
+
+<p>In both these early instances of “liquidity mining” the protocols (and users) began to calculate these incentives as an annual yield (APY) on top of the underlying assets. While a helpful measure, these rates would continually fluctuate as i) prices changed on underlying assets ii) prices changed on assets paid as incentives and iii) amount of funds eligible for pro-rata rewards changed.</p>
+
+<p>But these two early projects had lit a fuze — for a frenzied amount of building and experimentation that would shortly follow. (This period is now called “DeFi Summer” of 2020.) Most of all, this experimentation showed the way for a new mechanism for bootstrapping these early financial networks.</p>
+
+<h2>Token prices — hybrid between early company and FX</h2>
+
+<p>Changing currency prices and exchange rates are tricky. Just as Keynes dabbled in currency speculation when foreign exchanges rates became un-pegged during post-WWI repatriations, early speculators in this space are trying to get a handle on a changing ecosystem of asset-to-asset rates.</p>
+
+<p>To make all of this a bit simpler, I try to think of digital assets akin to a nation’s currency — where the currency’s strength has some relation to the strength of the underlying economy. Similar to looking at what the Fed communicates, we can look to protocols to see what the digital asset’s “central bank” (e.g. token economics, structures) suggest will be coming. But most of all, we want to understand how our exposure in other countries (tokens) will ultimately matter in our home country (whatever set of tokens — or fiat-pegged stablecoins — we want to hold long-term.)</p>
+
+<p>Said another way: if you get paid Yen-based-yield on your Dollars, you should i) have a belief about what your Yen will be worth or ii) sell regularly to Dollars. Now, rather than Yen or Dollars — these new ecosystems represent currency used in an early-stage, high-growth technology platforms.</p>
+
+<p>For these new monetary ecosystems and marketplaces — there are parallels. When a traditional marketplace (say, Uber, for example) goes to scale their business, they will provide incentives to try to increase the size of their marketplace. In Uber’s case — while growing, they provided cash-based incentives for drivers and riders to increase usage. To fund these incentives, they had a series of private sales of the company’s equity (for cash), some amount of which was used to pay these incentives.</p>
+
+<p>Financial protocols — which have their own token — can build their incentive programs a bit more like a nation thinks about financial policy than a traditional technology startup. They can allocate a portion of the tokens they will create — or set policy for inflation — to support incentives that help grow their ecosystem.</p>
+
+<p>The emergence of “liquidity mining” (covered above) is just the simplest, earliest form of this new pattern of incentives. Already, many DeFi projects and products have begun experimenting with these new patterns to drive usage and adoption. Unlike Uber, these’s protocols already have a liquid token with which they can reward good network behavior.</p>
+
+<h2>New incentives for liquidity</h2>
+
+<p>Perhaps the most interesting (and successful) experiment of “DeFi summer” was the anonymous launch of a new protocol called “SushiSwap.” SushiSwap was a direct fork (copy of open source code) of Uniswap, but offered an  <a href="https://medium.com/sushiswap-org/the-sushiswap-project-8716c429cee1">interesting value proposition</a>: liquidity providers on major Uniswap AMM pools could bring that liquidity to this new protocol, and be paid in $SUSHI token (governance), in addition to the transaction fees they were already receiving. Most cunning of all: SushiSwap began distributing these rewards to any Uniswap liquidity provider  <em>who staked their deposit receipt</em>.</p>
+
+<p>Then, on the appointed day of SushiSwap’s official  <a href="https://www.coindesk.com/sushiswap-uniswap-launch">launch</a>, the operators of the protocol could simply use the staked deposit receipts to redeem liquidity from Uniswap, and migrate the underlying tokens into their own protocol. (Not a small amount: at launch, nearly $1B in value was staked.) This was a direct economic attack to bring liquidity from one protocol to another — and grew the entire ecosystem by bringing attention and competition.</p>
+
+<p>This paved the path for many new financial marketplaces to think critically about how to i) attract underlying working capital to their protocols and ii) improve on existing systems already built.</p>
+
+<h2>Many protocols vie for liquidity; aggregators emerge</h2>
+
+<p><img src="https://miro.medium.com/v2/resize:fit:1400/1*gdWjxMyCbuCK_laB3HiHzA.png" alt="" /></p>
+
+<p>“Yearn is the Apple of DeFi” — Tarun Chitra. Image is snapshot of yearn.finance hompage.</p>
+
+<p>Once enough protocols started following these similar methods around incentives for working capital, an early, messy market begins emerging: the going rate for a given asset at any given moment. Unlike traditional daily measures like  <a href="https://en.wikipedia.org/wiki/Libor">LIBOR</a>, the yields on each digital asset vary moment to moment. As fund holders move their funds towards higher return opportunities, they reduces those yields (pro-rata) in real-time. For the average user, the problem statement to navigate this market became simple:</p>
+
+<p>1.  Who will pay the highest yield for the digital asset I have?</p>
+<p>2.  How often should I rebalance (move) my assets to a higher-yielding platform?</p>
+
+<p>Ethereum transaction fees (gas) eats away at the potential gains from re-balancing — thus fund holders must continually evaluate if they believe a yield difference between two platforms will be sufficient to warrant the 1x cost of movement of funds.</p>
+
+<p>This problem has birthed a new category:  <em>the aggregation layer for yield</em>. It started earnestly enough — one developer started to build a smart contract to manage funds for multiple users, sharing the rebalancing gas costs between them. The project was eventually named  <a href="http://yearn.finance/">Yearn</a>, and launched a fair-launch governance token (YFI) to help shape the future of the platform.</p>
+
+<p>Yearn acts a bit like a simple, open-source money market — rebalances are publicly done on-chain. Users can contribute their funds to any number of “vaults” (strategies) that then optimize yield across a variety of underlying DeFi protocols. “Yearn is the Apple of DeFi” notes  <a href="https://twitter.com/tarunchitra">Tarun Chitra</a>, CEO of Gauntlet and large supporter of the DeFi ecosystem.</p>
+
+<p>The governance token, YFI, was launched in a “fair launch” fashion — given pro-rata to users who supplied digital assets to the protocol. Assets in the protocol quickly ramped from  <a href="https://messari.io/asset/yearn-finance/profile">$8M to $400M</a>  in the first week of the YFI token distribution.  <em>[Today, in Jan ’22, the ecosystem has $5.7B of assets within the protocol.]</em> At time of launch, it was unclear if the token would have any value at all — and now, at time of writing, the YFI token has a market capitalization of nearly $900M.</p>
+
+<p>This is worth mentioning for a few reasons:</p>
+
+<p>1.  Tokens that are distributed widely actually bestows a value on them — it brings a large community with shared incentives, and prevents any one group or company from being in complete control of an ecosystem</p>
+<p>2.  This was one of the most lucrative addition-to-yield incentives ever distributed. No new ecosystem can copy directly, but has provided a shape of ecosystem (similar to Bitcoin’s initial mining) that will be iterated by future protocol developers.</p>
+
+<p>Still in early days, but the Yearn ecosystems represents a protocol-level attempt to solve the problem of fragmentation throughout the ecosystem. Currently, total assets managed by the protocol are around $500M; users must take the additional smart contract risk of the protocol, on top of the risk of the underlying protocols that the Yearn vault invests into.</p>
+
+<p>Expect many more “vaults” and other ecosystem players to emerge to try to bring “<a href="https://stratechery.com/aggregation-theory/">aggregation theory</a>” to the yield side of the ecosystem.</p>
+
+<p><em>Thanks to those who gave me feedback on this piece when it was just a private letter; many thanks. Since I wrote this, so many new interesting things have been built.</em></p>
+
+<p><em>The speed DeFi evolves will continues to accelerate — particularly as these different concepts and primitives stack on each other. If you found this at all helpful, do consider sharing with some other folks learning about DeFi. And let me know so I can keep sharing more of my internal letters!</em></p>
+
+<p><em>You can find me on Twitter @</em><a href="http://twitter.com/njess"><em>njess</em></a><em>.</em></p>
+<p><a href="../">← Back to Proof Group</a></p>
+
+</div>
+</body>
+</html>
