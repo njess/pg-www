@@ -1,3 +1,5 @@
+# http://proofgroup.xyz/writing/venture-situations
+
 # Venture Situations: The New Normal in Silicon Valley
 
 *DRAFT: Aug 19, 2024*
