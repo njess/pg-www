@@ -34,7 +34,6 @@ Once the build completes, visiting that URL will serve `index.html` from the rep
 ## Directory Structure
 
 - `index.html` – Main landing page
-- `office.html` – Page with a placeholder photo of our office. Replace the placeholder image in `office.html` with your own if desired.
 - `writing/` – Articles and other long-form content
 - `img/` – Images used on the site
 
